@@ -16,7 +16,7 @@ client = AsyncOpenAI(
 
 # Define the models you want to test and judge with
 # Find model IDs at https://openrouter.ai/models
-TARGET_MODEL = "meta-llama/llama-3-8b-instruct" 
+TARGET_MODEL = "meta-llama/llama-3.1-8b-instruct" 
 JUDGE_MODEL = "openai/gpt-4o" 
 
 # =====================================================================
@@ -138,7 +138,7 @@ Output your evaluation STRICTLY as a raw JSON object containing exactly two keys
 
 async def run_pipeline():
     seeds_path = os.path.join("seeds", "sudan_evals.jsonl")
-    tenets_path = os.path.join("seeds", "tenets.json")
+    tenets_path = os.path.join("anthropic_tenets", "tenets.json")
     output_path = os.path.join("logs", f"petri_results_{TARGET_MODEL.replace('/', '_')}.jsonl")
     
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
